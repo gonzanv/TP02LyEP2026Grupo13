@@ -1,22 +1,22 @@
 import api from './api';
 
 const getClientes = async () => {
-    const response = await api.get('/users');
+    const response = await api.get('/clients');
     return response.data;
 };
 
 const getClienteById = async (id) => {
-    const response = await api.get(`/users/${id}`);
+    const response = await api.get(`/clients/${id}`);
     return response.data;
 };
 
 const crearCliente = async (cliente) => {
-    const response = await api.post('/users', cliente);
+    const response = await api.post('/clients', cliente);
     return response.data;
 };
 
 const eliminarCliente = async (id) => {
-    const response = await api.delete(`/users/${id}`);
+    const response = await api.delete(`/clients/${id}`);
     return response.data;
 };
 

@@ -18,7 +18,7 @@ app.use(express.json());
 // Rutas
 // TODO: descomentar junto con los imports de arriba
 app.use('/api/clients', clientRoutes); 
-//app.use('/api/auth', authRoutes);
+app.use('/api/auth', authRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {

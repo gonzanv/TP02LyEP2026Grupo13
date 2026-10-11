@@ -113,10 +113,6 @@ const DetalleCliente = () => {
         <strong>Usuario:</strong> {cliente.username}
       </p>
 
-      <p>
-        <strong>Contraseña:</strong> {cliente.password}
-      </p>
-
       {admin?.sector?.trim() === "Gerencia" && (
         <button className='btn-eliminar' onClick={abrirModalEliminar}>
         <FiTrash2 className="me-1" /> Eliminar Cliente

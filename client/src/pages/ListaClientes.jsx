@@ -2,7 +2,6 @@ import "../css/listaclientes.css";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FiEye, FiSearch } from "react-icons/fi";
-import FormCliente from "../components/FormCliente";
 import clientesService from "../services/clientesService";
 import useDebounce from "../hooks/useDebounce";
 import { Spinner, Alert } from "react-bootstrap";
@@ -13,9 +12,6 @@ const ListaClientes = () => {
   const busquedaDebounced = useDebounce(busqueda, 300);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const handleClienteCreado = (nuevoCliente) => {
-  setClientes((prevClientes) => [nuevoCliente, ...prevClientes]);
-};
 
     const cargarClientes = () => {
     setLoading(true);
@@ -38,11 +34,11 @@ const ListaClientes = () => {
   const clientesFiltrados = clientes.filter((cliente) => {
   const termino = busquedaDebounced.toLowerCase().trim();
   if (!termino) return true;
-  const nombre = cliente?.name?.firstname?.toLowerCase() ?? "";
-  const apellido = cliente?.name?.lastname?.toLowerCase() ?? "";
-  const email = cliente?.email?.toLowerCase() ?? "";
-  const ciudad = cliente?.address?.city?.toLowerCase() ?? "";
-  const telefono = cliente?.phone?.toLowerCase() ?? "";
+  const nombre = String(cliente?.name?.firstname ?? "").toLowerCase();
+  const apellido = String(cliente?.name?.lastname ?? "").toLowerCase();
+  const email = String(cliente?.email ?? "").toLowerCase();
+  const ciudad = String(cliente?.address?.city ?? "").toLowerCase();
+  const telefono = String(cliente?.phone ?? "").toLowerCase();
   return (
     nombre.includes(termino) ||
     apellido.includes(termino) ||
@@ -84,9 +80,6 @@ if (error) {
 
 
       <h1>Clientes</h1>
-      <FormCliente onClienteCreado={handleClienteCreado} />
-
-      <hr />
 
       <div className="header-acciones">
         <Link to="/clientes/nuevo" className="btn-ficha btn-nuevo-cliente">

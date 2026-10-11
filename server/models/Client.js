@@ -8,7 +8,7 @@ const clientSchema = new mongoose.Schema({
         firstname: { type: String, required: true },
         lastname: { type: String, default: '*******'}
     },
-    adress: {
+    address: {
         city: { type: String, default: '' },
         street: { type: String, default: '' },
         number: { type: Number, default: 0 },

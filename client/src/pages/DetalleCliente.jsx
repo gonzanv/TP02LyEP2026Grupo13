@@ -89,22 +89,22 @@ const DetalleCliente = () => {
         <strong>Teléfono:</strong> {cliente.phone}
       </p>
 
-      <h2>Dirección</h2>
+            <h2>Dirección</h2>
 
       <p>
-        <strong>Calle:</strong> {cliente.address.street}
+        <strong>Calle:</strong> {cliente.address?.street ?? cliente.adress?.street ?? '-'}
       </p>
 
       <p>
-        <strong>Número:</strong> {cliente.address.number}
+        <strong>Número:</strong> {cliente.address?.number ?? cliente.adress?.number ?? '-'}
       </p>
 
       <p>
-        <strong>Código Postal:</strong> {cliente.address.zipcode}
+        <strong>Código Postal:</strong> {cliente.address?.zipcode ?? cliente.adress?.zipcode ?? '-'}
       </p>
 
       <p>
-        <strong>Ciudad:</strong> {cliente.address.city}
+        <strong>Ciudad:</strong> {cliente.address?.city ?? cliente.adress?.city ?? '-'}
       </p>
 
       <h2>Credenciales</h2>

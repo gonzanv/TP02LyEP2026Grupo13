@@ -10,7 +10,7 @@ const clientes = [
     username: 'mariag',
     password: 'demo1234',
     name: { firstname: 'Maria', lastname: 'Gomez' },
-    adress: { city: 'San Salvador de Jujuy', street: 'Alvear', number: 450, zipcode: '4600' },
+    address: { city: 'San Salvador de Jujuy', street: 'Alvear', number: 450, zipcode: '4600' },
     phone: 3884556677
   },
   {
@@ -18,7 +18,7 @@ const clientes = [
     username: 'carlosl',
     password: 'demo1234',
     name: { firstname: 'Carlos', lastname: 'Lopez' },
-    adress: { city: 'Palpala', street: 'San Martin', number: 88, zipcode: '4612' },
+    address: { city: 'Palpala', street: 'San Martin', number: 88, zipcode: '4612' },
     phone: 3884112233
   },
   {
@@ -26,7 +26,7 @@ const clientes = [
     username: 'luciaf',
     password: 'demo1234',
     name: { firstname: 'Lucia', lastname: 'Fernandez' },
-    adress: { city: 'San Pedro de Jujuy', street: 'Sarmiento', number: 215, zipcode: '4500' },
+    address: { city: 'San Pedro de Jujuy', street: 'Sarmiento', number: 215, zipcode: '4500' },
     phone: 3884778899
   }
 ];

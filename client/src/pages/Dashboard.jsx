@@ -2,6 +2,7 @@ import '../css/dashboard.css'
 import useAutorizaciones from '../hooks/useAutorizaciones'
 import { useEffect, useState } from 'react'
 import { Spinner } from 'react-bootstrap'
+import clientesService from '../services/clientesService';
 
 const Dashboard = () => {
   const { admin } = useAutorizaciones()
@@ -9,16 +10,15 @@ const Dashboard = () => {
   const [cargandoMetricas, setCargandoMetricas] = useState(true);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/users")
-      .then((res) => res.json())
-      .then((data) => {
-        setTotalClientes(Array.isArray(data) ? data.length : 0);
-        setCargandoMetricas(false);
-      })
-      .catch(() => {
-        setCargandoMetricas(false);
-      });
-  }, []);
+  clientesService.getClientes()
+    .then((data) => {
+      setTotalClientes(Array.isArray(data) ? data.length : 0);
+      setCargandoMetricas(false);
+    })
+    .catch(() => {
+      setCargandoMetricas(false);
+    });
+}, []);
 
   return (
     <div className="dashboard">

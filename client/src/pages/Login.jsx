@@ -36,24 +36,23 @@ const Login = () => {
     return Object.keys(nuevosErrores).length === 0
   }
 
-  const manejarSubmit = (e) => {
+      const manejarSubmit = async (e) => {
     e.preventDefault()
     setLoginInvalido(false)
     if (!validar()) return
 
-    const usuario = AutorizacionesService.login(email, password)
-
-    if (!usuario) {
+    try {
+      const data = await AutorizacionesService.login(email, password)
+      setAdmin({
+        nombre: data.usuario.nombre,
+        email: data.usuario.email,
+        sector: data.usuario.sector,
+        token: data.token
+      })
+      navigate('/')
+    } catch {
       setLoginInvalido(true)
-      return
     }
-
-    setAdmin({
-      nombre: usuario.nombre,
-      email: usuario.email,
-      sector: usuario.sector
-    })
-    navigate('/')
   }
 
   return (

@@ -88,6 +88,11 @@ Ejecutar script de seed para cargar usuarios iniciales:
 npm run seed
 ```
 
+Ejecutar script de seed para cargar clientes iniciales:
+```bash
+npm run seed:clients
+```
+
 Iniciar servidor en modo desarrollo:
 ```bash
 npm run dev
